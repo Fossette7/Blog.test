@@ -1,0 +1,10 @@
+{
+    "name": "reybekapeyrat/blog-php",
+    "authors": [
+        {
+            "name": "Reybeka Peyrat",
+            "email": "reybekapeyrat@gmail.com"
+        }
+    ],
+    "require": {}
+}
