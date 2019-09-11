@@ -1,6 +1,8 @@
 <?php
 
-class db
+namespace App\Service\Connecteur;
+
+class Db
 {
     // Set mdp, login, bdd name, bdd_host to bdd on private val
     private $password = 'jimmjimm';
@@ -11,6 +13,7 @@ class db
 
     public function __construct()
     {
+        die('toto');
         $this->bddObject = $this->connectdb();
     }
 
