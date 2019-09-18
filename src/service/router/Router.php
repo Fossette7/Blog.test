@@ -4,32 +4,33 @@ namespace App\Service\Router;
 
 class Router
 {
-    private $requestUri;
+    public $requestUri;
 
     /*
      * Action Executer des l instansation de la class (new Router() )
      */
     public function __construct()
     {
-        // J'associe une variable a $requestUri
-        $this->requestUri = $_SERVER['REQUEST_URI'];
+        // J'associe une variable à $requestUri
+        // On utilise substr pour retirer le premier / de la variable $_SERVER['REQUEST_URI']
+        // https://www.php.net/manual/fr/function.substr.php
+        $this->requestUri = substr($_SERVER['REQUEST_URI'], 1);
     }
 
     public function getController()
     {
-        // On veux accèder a la page Home
-        if ($this->requestUri === '/')
+        if ($this->requestUri === '')
         {
             $homeController = new \App\Controller\Home();
-            return $homeController->getIndexPage();
-        } else if ($this->requestUri === '/post')
+            echo $homeController->getIndexPage();
+        } else if ($this->requestUri === 'about')
         {
-            $postController = new \App\Controller\Post();
-            return $postController->getPostPage();
-        } else {
+            die ('add new about controller and view');
+        }
+        else {
             echo 'Aucune route n est défini pour l url suivante<br/>';
             echo '<pre>';
-            // J'affiche la donnée associé à $requestUri
+            // J'affiche la donnée associée à $requestUri
             var_dump($this->requestUri);
             echo '</pre>';
         }
@@ -38,7 +39,7 @@ class Router
     public function whatITryToAccess()
     {
         echo '<pre>';
-        // J'affiche la donnée associé à $requestUri
+        // J'affiche la donnée associée à $requestUri
         var_dump($this->requestUri);
         echo '</pre>';
     }

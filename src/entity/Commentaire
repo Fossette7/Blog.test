@@ -4,6 +4,8 @@ namespace App\Entity;
 
 class Commentaire
 {
+    /** @var string contain comment */
+
     private $id;
     private $texte;
     private $membreId;

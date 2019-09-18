@@ -4,6 +4,7 @@ namespace App\Entity;
 
 class Membre
 {
+    /** @var string contain Member Name */
 
     private $id;
     private $login;

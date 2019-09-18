@@ -2,18 +2,15 @@
 
 namespace App\Entity;
 
-class Post
+class Post extends \App\Service\Connecteur\Db
 {
+    /** @var string contain Post */
     private $id;
     private $titre;
     private $membreId;
     private $contenu;
     private $dateCreation;
     private $dateModification;
-
-    public function __construct()
-    {
-    }
 
     public function __toString()
     {
@@ -116,5 +113,12 @@ class Post
     public function save(){
         echo 'Votre post est sauvegardé<br/><br/>';
         echo $this->__toString();
+    }
+
+
+    public function getAllPost(){
+        $reponse = $this->bddObject->query('SELECT * FROM Post');
+        $allPost = $reponse->fetchAll();
+        return $allPost;
     }
 }

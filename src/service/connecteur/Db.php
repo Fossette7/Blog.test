@@ -9,30 +9,25 @@ class Db
     private $login = 'root';
     private $bddname = 'blog_p5';
     private $bddHost = 'localhost';
-    private $bddObject;
+    protected $bddObject;
 
     public function __construct()
     {
-        die('toto');
         $this->bddObject = $this->connectdb();
     }
 
     protected function connectdb()
     {
         try {
-                return new PDO('mysql:host='.$this->bddHost.';dbname='.$this->bddname.';charset=utf8', $this->login, $this->password,
-                array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        } catch (Exception $e)
+                return new \PDO('mysql:host='.$this->bddHost.';dbname='.$this->bddname.';charset=utf8', $this->login, $this->password,
+                array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
+        } catch (\Exception $e)
         {
             echo 'Erreur : ' . $e->getMessage();
         }
     }
 
-    public function getAllPost(){
-        $reponse = $this->bddObject->query('SELECT * FROM Post');
-        $allPost = $reponse->fetchAll();
-        return $allPost;
-    }
+
 
     public function getAllMembre(){
         $bdd = $this->connectdb();
