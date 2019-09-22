@@ -11,7 +11,7 @@
                             {{ onePost.titre }}
                         </h2>
                         <h3 class="post-subtitle">
-                            {{ onePost.contenu }}
+                            {{ onePost.contenu | truncate(40) }}
                         </h3>
                     </a>
                     <p class="post-meta">Posté le {{ onePost.date_creation | date('d/m/Y', 'Europe/Paris') }}</p>
