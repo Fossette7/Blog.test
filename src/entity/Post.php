@@ -115,10 +115,19 @@ class Post extends \App\Service\Connecteur\Db
         echo $this->__toString();
     }
 
+    //$Member = new Membre;
 
     public function getAllPost(){
         $reponse = $this->bddObject->query('SELECT * FROM Post');
         $allPost = $reponse->fetchAll();
         return $allPost;
     }
+
+    public function getPostById($idFromPost){
+        $reponse = $this->bddObject->query('SELECT * FROM Post WHERE id='.$idFromPost);
+        $onePost = $reponse->fetchAll();
+        return $onePost;
+    }
+
+
 }

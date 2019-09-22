@@ -8,9 +8,8 @@ class Home extends BaseController
     {
         $mypost = new \App\Entity\Post();
         $allMyIndexPost = $mypost->getAllPost();
-        var_dump($allMyIndexPost);
-        die();
-        return $this->twig->render('index.twig', ['name' => 'Brice']);
+
+        return $this->twig->render('index.twig', ['lesPosts' => $allMyIndexPost]);
     }
 
     public function getMyCustomPage(){

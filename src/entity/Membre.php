@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Membre
+class Membre extends \App\Service\Connecteur\Db
 {
     /** @var string contain Member Name */
 
@@ -106,4 +106,19 @@ class Membre
         echo 'Votre membre est sauvegardé<br/><br/>';
         echo $this->__toString();
     }
+
+    public function getAllMember(){
+        $reponse = $this->bddObject->query('SELECT * FROM Membre');
+        $allMember= $reponse->fetchAll();
+        return $allMember;
+
+    }
+
+    public function getMemberById($id){
+        $reponse = $this->bddObject->query('SELECT * FROM Membre WHERE id=($id)');
+        $memberById= $reponse->fectchAll();
+        return $memberById;
+        var_dump($memberById);
+    }
+
 }

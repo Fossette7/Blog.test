@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Commentaire
+class Commentaire extends \App\Service\Connecteur\Db
 {
     /** @var string contain comment */
 
@@ -12,9 +12,6 @@ class Commentaire
     private $postId;
     private $dateCreation;
 
-    public function __construct()
-    {
-    }
 
     public function __toString()
     {
@@ -61,6 +58,12 @@ class Commentaire
     public function setMembreId($membreId)
     {
         $this->membreId = $membreId;
+    }
+
+    public function getAllComment($idFromPost){
+        $reponse = $this->bddObject->query('SELECT * FROM Commentaire WHERE post_id='.$idFromPost);
+        $allComment = $reponse->fetchAll();
+        return $allComment;
     }
 
 }

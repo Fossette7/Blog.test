@@ -7,7 +7,7 @@ class Router
     public $requestUri;
 
     /*
-     * Action Executer des l instansation de la class (new Router() )
+     * Action Executer des l instansiation de la class (new Router() )
      */
     public function __construct()
     {

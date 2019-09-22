@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 class Membre {
-    public function getMEmbrePage(){
+    public function getMembrePage(){
         echo 'ok';
     }
+
 }

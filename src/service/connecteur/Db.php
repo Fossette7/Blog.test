@@ -26,17 +26,5 @@ class Db
             echo 'Erreur : ' . $e->getMessage();
         }
     }
-
-
-
-    public function getAllMembre(){
-        $bdd = $this->connectdb();
-    }
-
-    public function getPostById($id){
-
-    }
-
-
     // Set function getMembreById.
 }

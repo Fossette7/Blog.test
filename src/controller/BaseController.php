@@ -11,7 +11,8 @@ class BaseController {
         $this->loader = new \Twig_Loader_Filesystem(__DIR__.'/../view');
         $this->twig = new \Twig_Environment($this->loader, [
            'cache' => false,
-            'debug' => true
+            'debug' => true,
         ]);
+        $this->twig->addExtension(new \Twig\Extension\DebugExtension());
     }
 }
