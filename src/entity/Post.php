@@ -5,29 +5,29 @@ namespace App\Entity;
 class Post extends \App\Service\Connecteur\Db
 {
     /** @var string contain Post */
-    private $id;
-    private $titre;
-    private $membreId;
-    private $contenu;
-    private $dateCreation;
-    private $dateModification;
+    private $_id;
+    private $_titre;
+    private $_membreId;
+    private $_contenu;
+    private $_dateCreation;
+    private $_dateDeMiseAJour;
 
     public function __toString()
     {
         $text =
             "=========================================================<br/>
-            le titre est $this->titre <br/> 
-            le membre est $this->membreId<br/>
-            le contenu est $this->contenu<br/>
-            la date de création est $this->dateCreation<br/>
-            la date de modification est $this->dateModification<br/> 
+            le titre est $this->_titre <br/> 
+            le membre est $this->_membreId<br/>
+            le contenu est $this->_contenu<br/>
+            la date de création est $this->_dateCreation<br/>
+            la date de modification est $this->_dateDeMiseAJour<br/> 
             ==========================================================";
 
         return $text;
     }
 
     public function getId(){
-        return $this->id;
+        return $this->_id;
     }
 
     /**
@@ -35,7 +35,7 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function getTitre()
     {
-        return $this->titre;
+        return $this->_titre;
     }
 
     /**
@@ -43,7 +43,7 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function setTitre($titre)
     {
-        $this->titre = $titre;
+        $this->_titre = $titre;
     }
 
     /**
@@ -51,7 +51,7 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function getMembreId()
     {
-        return $this->membre_id;
+        return $this->_membreId;
     }
 
     /**
@@ -59,7 +59,7 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function setMembreId($membre_id)
     {
-        $this->membre_id = $membre_id;
+        $this->_membreId = $membre_id;
     }
 
     /**
@@ -67,7 +67,7 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function getContenu()
     {
-        return $this->contenu;
+        return $this->_contenu;
     }
 
     /**
@@ -75,7 +75,7 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function setContenu($contenu)
     {
-        $this->contenu = $contenu;
+        $this->_contenu = $contenu;
     }
 
     /**
@@ -83,7 +83,7 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function getDateCreation()
     {
-        return $this->date_creation;
+        return $this->_dateCreation;
     }
 
     /**
@@ -91,7 +91,8 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function setDateCreation($date_creation)
     {
-        $this->date_creation = $date_creation;
+        $this->_dateCreation = $date_creation;
+        dump($date_creation);
     }
 
     /**
@@ -99,15 +100,15 @@ class Post extends \App\Service\Connecteur\Db
      */
     public function getDateModification()
     {
-        return $this->date_modification;
+        return $this->_dateDeMiseAJour;
     }
 
     /**
-     * @param mixed $date_modification
+     * @param mixed $dateDeMiseAJour
      */
-    public function setDateModification($date_modification)
+    public function setDateDeMiseAJour($dateDeMiseAJour)
     {
-        $this->date_modification = $date_modification;
+        $this->_dateDeMiseAJour = $dateDeMiseAJour;
     }
 
     public function save(){

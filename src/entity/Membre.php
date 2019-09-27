@@ -6,100 +6,100 @@ class Membre extends \App\Service\Connecteur\Db
 {
     /** @var string contain Member Name */
 
-    private $id;
-    private $login;
-    private $password;
-    private $email;
-    private $nom;
-    private $prenom;
-    private $enableAccount;
+    private $_id;
+    private $_login;
+    private $_password;
+    private $_email;
+    private $_nom;
+    private $_prenom;
+    private $_enableAccount;
 
     public function __toString()
     {
         $text =
             '================================<br/>' .
-            'Le login est ' . $this->login . '<br>' .
-            'Le mdp est ' . $this->password . '<br>' .
-            'Le email est ' . $this->email . '<br>' .
-            'Le nom est ' . $this->nom . '<br>' .
-            'Le prenom est ' . $this->prenom . '<br>' .
+            'Le login est ' . $this->_login . '<br>' .
+            'Le mdp est ' . $this->_password . '<br>' .
+            'Le email est ' . $this->_email . '<br>' .
+            'Le nom est ' . $this->_nom . '<br>' .
+            'Le prenom est ' . $this->_prenom . '<br>' .
             '================================<br/><br/><br/><br/>';
 
         return $text;
     }
 
     public function getId(){
-        return $this->id;
+        return $this->_id;
     }
 
     public function setLogin($loginVal)
     {
-        $this->login = $loginVal;
+        $this->_login = $loginVal;
     }
 
     public function getLogin()
     {
-        return $this->login;
+        return $this->_login;
     }
 
     public function setPassword($mdp)
     {
-        $this->password = $mdp;
+        $this->_password = $mdp;
     }
 
     public function getPassword()
     {
-        return $this->password;
+        return $this->_password;
     }
 
     public function setEmail($emailVal)
     {
-        $this->email = $emailVal;
+        $this->_email = $emailVal;
     }
 
     public function getEmail()
     {
-        return $this->email;
+        return $this->_email;
     }
 
     public function setNom($nomVal1)
     {
-        $this->nom = $nomVal1;
+        $this->_nom = $nomVal1;
     }
 
     public function getNom()
     {
-        return $this->nom;
+        return $this->_nom;
     }
 
     public function setPrenom($prenomVal1)
     {
-        $this->prenom = $prenomVal1;
+        $this->_prenom = $prenomVal1;
     }
 
     public function getPrenom()
     {
-        return $this->prenom;
+        return $this->_prenom;
     }
 
     public function setEnableAccount($enableAccount)
     {
-        $this->enableAccount = $enableAccount;
+        $this->_enableAccount = $enableAccount;
     }
 
     public function getEnableAccount()
     {
-        return $this->enableAccount;
+        return $this->_enableAccount;
     }
 
     public function activeAccount()
     {
-        $this->enableAccount = 1;
+        $this->_enableAccount = 1;
     }
 
     public function disableAccount()
     {
-        $this->enableAccount = 0;
+        $this->_enableAccount = 0;
     }
 
     public function save(){
@@ -118,7 +118,6 @@ class Membre extends \App\Service\Connecteur\Db
         $reponse = $this->bddObject->query('SELECT * FROM Membre WHERE id=($id)');
         $memberById= $reponse->fectchAll();
         return $memberById;
-        var_dump($memberById);
     }
 
 }

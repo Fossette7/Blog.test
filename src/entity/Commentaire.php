@@ -6,26 +6,26 @@ class Commentaire extends \App\Service\Connecteur\Db
 {
     /** @var string contain comment */
 
-    private $id;
-    private $texte;
-    private $membreId;
-    private $postId;
-    private $dateCreation;
+    private $_id;
+    private $_texte;
+    private $_membreId;
+    private $_postId;
+    private $_dateCreation;
 
 
     public function __toString()
     {
         $text =
             "===========================<br/>
-            Ceci est le texte $this->texte<br/>
-            Le membre est $this->membreId<br/>
-            Ceci est le post $this->postId<br/>
-            La date de création est $this->dateCreation<br/>";
+            Ceci est le texte $this->_texte<br/>
+            Le membre est $this->_membreId<br/>
+            Ceci est le post $this->_postId<br/>
+            La date de création est $this->_dateCreation<br/>";
         return $text;
     }
 
     public function getId(){
-        return $this->id;
+        return $this->_id;
     }
 
     /**
@@ -33,7 +33,7 @@ class Commentaire extends \App\Service\Connecteur\Db
      */
     public function getTexte()
     {
-        return $this->texte;
+        return $this->_texte;
     }
 
     /**
@@ -41,7 +41,7 @@ class Commentaire extends \App\Service\Connecteur\Db
      */
     public function setTexte($texte)
     {
-        $this->texte = $texte;
+        $this->_texte = $texte;
     }
 
     /**
@@ -49,7 +49,7 @@ class Commentaire extends \App\Service\Connecteur\Db
      */
     public function getMembreId()
     {
-        return $this->membreId;
+        return $this->_membreId;
     }
 
     /**
@@ -57,7 +57,7 @@ class Commentaire extends \App\Service\Connecteur\Db
      */
     public function setMembreId($membreId)
     {
-        $this->membreId = $membreId;
+        $this->_membreId = $membreId;
     }
 
     public function getAllComment($idFromPost){

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class Membre {
+class Membre extends BaseController {
     public function getMembrePage(){
         echo 'ok';
     }
