@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <h1>Créer un nouveau post</h1>
+    <form name="newPostPage" method="post" action="">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                Votre nouveau post: <br/>
+                <input type="hidden" name="pseudo" />
+                <p>Auteur: <input type="text" name="membre_Id" placeholder="Votre prénom"/> </p>
+                <p>Titre: <input type="text" name="titre" placeholder="écrivez-ici"/></p>
+                <p>Contenu: <textarea name="contenu"> </textarea> </p>
+
+                <input type="submit" value="valider le post">
+            </div>
+        </div>
+    </form>
+{% endblock %}

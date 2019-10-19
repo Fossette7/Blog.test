@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {# je crée un script de connexion #}
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+    <form name="login" method="post" action="login">
+        <h1>Se connecter</h1>
+        <div class="form-group">
+            <label for="loginform">Nom d'utilisateur</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Entrer le nom d'utilisateur">
+        </div>
+        <div class="form-group">
+            <label for="loginform" placeholder="mot de passe">Mot de passe</label>
+            <input type="password" class="form-control" placeholder="Entrer le mot de passe">
+        </div>
+        <button type="submit"  id="submit" value='LOGIN' class="btn btn-primary">Valider</button>
+        <div>
+            <a href="#">
+                Forgot Password?
+            </a>
+        </div>
+    </div>
+    </form>
+    </div>
+{% endblock %}

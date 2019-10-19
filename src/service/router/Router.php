@@ -2,6 +2,9 @@
 
 namespace App\Service\Router;
 
+use App\Controller\About;
+use App\Controller\Membre;
+
 class Router
 {
     public $requestUri;
@@ -22,11 +25,11 @@ class Router
     }
 
     /*
-     * Fonction qui permet d'instancier le bon controller en fonction de la valeur stocker dans $requestUri
+     * Fonction qui permet d'instancier le bon controller en fonction de la valeur stockée dans $requestUri
      */
     public function getController()
     {
-        // Je fais un explode sur le slash sur ma variable $requestUri dans ma class qui me retourne un tableau
+        // Problème avec un slash qui se rajoute alors je fais un explode sur le slash sur ma variable $requestUri dans ma classe qui me retourne un tableau
         // https://www.php.net/manual/fr/function.explode.php
         $explodedUri = explode('/', $this->requestUri);
 
@@ -52,23 +55,50 @@ class Router
             // qui est égal à post/2 ou post/1 ou post/3 ou post/4 ou ........
             echo $homeController->getOnePostPage($this->requestUri);
         }
-        // Sinon si ma variable requestUri est égal à: about alors je rentre dans la condition
+        // Sinon si ma variable requestUri est égal à: /about alors je rentre dans la condition
         // Donc mon url doit être égal à www.blog.test/about
         else if ( $this->requestUri === 'about'){
             // Afficher la page about
+            //je crée une instance de la classe
+            $about = new \App\Controller\About();
+            echo $about->getAboutPage();
+
         }
         /*Sinon si ma variable requestUri est égal à: contact alors je rentre dans la condition
-        Donc mon url url doit être égal à www.blog.test/contact */
+        Donc mon url doit être égal à www.blog.test/contact */
         else if ( $this->requestUri === 'contact'){
             //afficher la page contact
             //je créee un instance de la classe Form
             $formpage = new \App\Controller\Form();
-            $formpage->getFormPage();
-            die('okk');
+            echo $formpage->getFormPage();
         }
+        /*Sinon si ma variable requestUri est égal à: new/post alors je rentre dans la condition
+        Donc mon url doit être égal à www.blog.test/new/post */
+        else if ( $this->requestUri === 'new/post') {
+            //afficher la page new post
+            //je crée une instance de la classe Post
+            $formpage = new \App\Controller\Post();
+            echo $formpage->getNewPostFromFormPage();
+        }
+        /* Je crée l URL pour la page "login"
+        Si ma variable requestUri est égal à : /login alors je rentre dans la condition et j'affiche
+        mon url doit être égal à www.blog.test/login */
+        else if ($this->requestUri==='login'){
+            //afficher la page de connexion
+            $displayMemberPage = new \App\Controller\Membre();
+            echo $displayMemberPage->getMembrePage();
+
+        }
+
+        /*Ajouter un commentaire :
+        Sinon si ma variable requestUri est égal à: /comment alors je rentre dans la condition
+        Donc mon url doit être égal à www.blog.test/comment */
         // Si aucune des conditions décrites, j'execute le code suivant:
         else {
-            echo 'Aucune route n est défini pour l url suivante<br/>';
+            // J instancie la classe Post et je la stocke dans ma variable $homeController
+            $homeController = new \App\Controller\Post();
+            // J'affiche le retour de la fonction getIndexPage se trouvant dans la classe Home
+            echo $homeController->getIndexPage();
             dump($this->requestUri);
         }
     }
