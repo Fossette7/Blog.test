@@ -96,7 +96,7 @@ class Router
         // Si aucune des conditions décrites, j'execute le code suivant:
         else {
             // J instancie la classe Post et je la stocke dans ma variable $homeController
-            $homeController = new \App\Controller\Post();
+            $homeController = new \App\Controller\Home();
             // J'affiche le retour de la fonction getIndexPage se trouvant dans la classe Home
             echo $homeController->getIndexPage();
             dump($this->requestUri);

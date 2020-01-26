@@ -7,7 +7,7 @@
             <h1>Reybeka</h1>
         </div>
 
-    </div class>
+    </div>
 
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -29,7 +29,7 @@
                             {{ onePost.contenu | truncate(40) }}
                         </h3>
                     </a>
-                    <p class="post-meta">Posté le {{ onePost.date_creation | date('d/m/Y', 'Europe/Paris') }}</p>
+                    <p class="post-meta">Posté le {{ onePost.created }}</p>
                 </div>
                 <hr>
             {% endfor %}

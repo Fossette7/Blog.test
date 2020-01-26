@@ -1,24 +1,80 @@
 {% extends "base.twig" %}
+{#j'étends le template de base twig#}
 
 {% block content %}
 
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-
-                <div class="post-preview">
-                    <a href="post/{{ onePost.id }}">
-                        je suis un numéro id:{{onePost.id}}
-                        <h2 class="post-title">
-                            {{ onePost.titre }}
-                        </h2>
-                        <h3 class="post-subtitle">
-                            {{ onePost.contenu | truncate(40) }}
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posté le {{ onePost.date_creation | date('d/m/Y', 'Europe/Paris') }}</p>
+            {# je crée ma zone de post#}
+            <div class="post-preview">
+                <a href="post/{{ onePost.id }}">
+                    je suis un numéro id:{{onePost.id}}
+                    <h2 class="post-title">
+                        {#je récupère le titre du post#}
+                        {{ onePost.titre }}
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {#je récupère le contenu en appliquant un truncate pour le châpo#}
+                        {{ onePost.contenu }}
+                    </h3>
+                </a>
+                {#j'ajoute la date de mise en ligne du post#}
+                <p class="post-meta">Posté le {{ onePost.date_creation | date('d/m/Y', 'Europe/Paris') }}</p>
+            </div>
+            {# je crée ma partie commentaire#}
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <h4>Commentez ce blog post</h4>
                 </div>
-            <div class="clearfix"><a class="btn btn-primary float-right" href="#">Posts précédents &rarr;</a></div>
+                <form name="ajouter un commentaire" method="post" action="">
+                    <div class="container">
+                        <div class="col-lg-4 col-md-6 mx-auto">
+                            Pseudo: <input type="text" name="pseudo"/> </br>
+
+                            Votre commentaire <textarea name="comment" placeholder="Votre commentaire"> </textarea> </br>
+                        </div>
+                        A quoi sert ceci? je dois <r></r>écupérer les commentaires ajoutés via le formulaire:
+                         <h5>Commentaire</h5>
+    {# {{ oneComment.commentaire }} pour afficher les commentaires
+                        {% for oneComment in comments %}
+                             {{ oneComment.texte }}
+                             <hr>
+                         {% endfor %} #}
+                        <div class="col-lg-4 col-md-6 mx-auto">
+                            <input type="submit" name="valider" class="btn btn-primary" value="Valider"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="container"><a class="btn btn-primary float-right" href="#">Posts précédents &rarr;</a></div>
         </div>
+    </div>
+
+    {#test#}
+    <div class="panel panel-default">
+        <div class="panel-heading">Comments</div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Comment</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Comment ID</th>
+                <td>Name</td>
+                <td>Comment</td>
+                <td>Comment Time</td>
+                <td>Comment Status</td>
+                <td><a href="#">Edit</a> <a href="#">App</a> <a href="#">Dis</a> <a href="#">Del</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 {% endblock %}

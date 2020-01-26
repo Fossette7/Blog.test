@@ -1,11 +1,28 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
-    <div>
-        <form action=>
-<h1>pomme</h1>
-        </form>
+    {#je cree mon formulaire de contact#}
+    <h1>Pour plus d'information remplissez le formulaire</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+    {#{{ form_start() }}#}
+            <form name="demande_information" method="post" action="">
+                <div class="form-group">
+                    <label for="information1">Votre nom</label>
+                    <input type="text" name="name" class="form-control" id="information1" placeholder="nom">
+                </div>
+                <div class="form-group">
+                    <label for="information1">Votre e-mail</label>
+                    <input type="email" name="email" class="form-control" id="information1" placeholder="email">
+                </div>
+                <div class="form-group">
+                    <label for="information1">Objet de votre demande</label>
+                    <textarea name="subject" class="form-control" rows="7"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </form>
+    {#{{ form_end() }}#}
+        </div>
     </div>
-
 {% endblock %}

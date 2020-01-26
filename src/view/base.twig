@@ -43,13 +43,10 @@
                                         <a class="nav-link" href="/about">A propos</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="post.html">Mes posts</a>
+                                        <a class="nav-link" href="login">Login</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="membre.html">Membres</a>
-                                </li>
-                                <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
+                                        <a class="nav-link" href="contact">Contact</a>
                                 </li>
                         </ul>
                 </div>
@@ -58,7 +55,7 @@
 {% endblock %}
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('../../img/home-bg.jpg')">
+<header class="masthead" style="background-image: url('../../img/about-bg.jpg')">
         <div class="overlay"></div>
         <div class="container">
                 <div class="row">
@@ -80,6 +77,7 @@
 <hr>
 
 <!-- Footer -->
+{% block footer %}
 <footer>
         <div class="container">
                 <div class="row">
@@ -89,7 +87,7 @@
                                                 <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse">Twitter</i>
                 </span>
                                                 </a>
                                         </li>
@@ -97,7 +95,7 @@
                                                 <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse">Facebook</i>
                 </span>
                                                 </a>
                                         </li>
@@ -105,7 +103,7 @@
                                                 <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse">Github</i>
                 </span>
                                                 </a>
                                         </li>
@@ -115,6 +113,7 @@
                 </div>
         </div>
 </footer>
+{% endblock %}
 
 <!-- Bootstrap core JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
