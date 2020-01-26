@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Commentaire extends \App\Service\Connecteur\Db
+class Comment extends \App\Service\Connecteur\Db
 {
     /** @var string contain comment */
 
@@ -59,11 +59,26 @@ class Commentaire extends \App\Service\Connecteur\Db
     {
         $this->_membreId = $membreId;
     }
-
+    // get all comments
     public function getAllComment($idFromPost){
-        $reponse = $this->bddObject->query('SELECT * FROM Commentaire WHERE post_id='.$idFromPost);
+        $reponse = $this->bddObject->query("SELECT * FROM Commentaire WHERE post_id =".$idFromPost);
         $allComment = $reponse->fetchAll();
         return $allComment;
+    }
+
+    // add a new comment, check number of parameter added
+    public function setNewComment($t,$c,$u)
+    {
+        /* $response = $this->bddObject->query("INSERT INTO Commentaire (texte, post_id, membre_id) VALUES (:texte, :membre_id, :post_id)"); */
+        $newComment = $this->bddObject->prepare("INSERT INTO Commentaire (texte, post_id, membre_id) VALUES (:texte, :membre_id, :post_id)");
+        //passer paramètre en variable pas en string
+        $test=1;
+        $newComment->bindParam(':texte',$test);
+        $newComment->bindParam(':membre_id',$test);
+        $newComment->bindParam(':post_id',$test);
+        $newComment->execute();
+        $reponse = $newComment->fetch();
+        return $reponse;
     }
 
 }
