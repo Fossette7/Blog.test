@@ -116,7 +116,7 @@ class Membre extends \App\Service\Connecteur\Db
 
     public function getMemberById($id){
         $reponse = $this->bddObject->query('SELECT * FROM Membre WHERE id=($id)');
-        $memberById= $reponse->fectchAll();
+        $memberById= $reponse->fetchAll();
         return $memberById;
     }
 

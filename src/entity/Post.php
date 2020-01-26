@@ -92,7 +92,6 @@ class Post extends \App\Service\Connecteur\Db
     public function setDateCreation($date_creation)
     {
         $this->_dateCreation = $date_creation;
-        dump($date_creation);
     }
 
     /**
@@ -123,12 +122,31 @@ class Post extends \App\Service\Connecteur\Db
         $allPost = $reponse->fetchAll();
         return $allPost;
     }
-
+    //après m'être connecter à la BDD, je recupère un post par son ID
     public function getPostById($idFromPost){
-        $reponse = $this->bddObject->query('SELECT * FROM Post WHERE id='.$idFromPost);
-        $onePost = $reponse->fetchAll();
+        $response = $this->bddObject->query('SELECT * FROM Post WHERE id =1;');
+        $onePost = $response->fetchAll();
         return $onePost;
     }
+    //je set la fonction pour créer un nouveau post, cela enregistrera un nouveau post dans notre BDD
+    public function setNewpost($t,$c){
+        if(empty($t) || empty($c)){
+            echo "Remplir les champs titre et contenu";
+            return;
+        }
+
+        $sql = "INSERT INTO Post (titre, contenu) VALUES ($t,$c)";
+        $stmt= $this->bddObject->prepare($sql);
+        $stmt->execute([$t, $c]);
+    }
+
+        // update a post already registered
+        public function updatePost($t,$id){
+            $response = $this->bddObject->query("UPDATE Post SET titre = ? WHERE id= ?;");
+            $newComment = $this->bddObject->prepare($response);
+            $newComment->execute([$t, $id]);
+    }
+
 
 
 }
