@@ -1,0 +1,40 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1>Reybeka</h1>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <img src="../../img/Photo_Reybeka.png" alt="photo Reybeka Peyrat">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+            {% for onePost in lesPosts %}
+                <div class="post-preview">
+                    <a href="post/{{ onePost.id }}">
+                        je suis un numéro id:{{onePost.id}}
+                        <h2 class="post-title">
+                            {{ onePost.titre }}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{ onePost.contenu | truncate(40) }}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posté le {{ onePost.created }}</p>
+                </div>
+                <hr>
+            {% endfor %}
+
+            <div class="clearfix"><a class="btn btn-primary float-right" href="#">Posts précédents &rarr;</a></div>
+        </div>
+    </div>
+{% endblock %}
